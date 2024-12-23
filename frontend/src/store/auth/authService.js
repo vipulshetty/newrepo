@@ -1,14 +1,10 @@
 import axios from 'axios';
 
-
-
-
 const API_URL = 'http://localhost:8000/api/v1';
-
 
 const register = async (user) => {
     
-        const response = await axios.post(`${API_URL}/users/register`, user);
+        const response = await axios.post(`${API_URL}/users/register`, user, {withCredentials: true});
         //console.log('response register', response.data);
         return response.data;
 };
@@ -80,12 +76,6 @@ const updateProfile = async (data) => {
     //console.log('response updateProfile', response.data)
     return response.data;
 }
-
-
-
-
-
-
 
 const authService = {
     register
